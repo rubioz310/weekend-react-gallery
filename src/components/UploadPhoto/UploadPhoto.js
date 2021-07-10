@@ -1,8 +1,8 @@
 import {useState} from 'react';
 import PhotoForm from '../PhotoForm/PhotoForm';
 
-function UploadPhoto(){
-
+function UploadPhoto(props){
+    const uploadPhoto = props.uploadPhoto;
     let [showForm,setShowForm] = useState(true);
 
     const toggleUploadForm = () => {
@@ -12,7 +12,7 @@ function UploadPhoto(){
     return(
         <div>
             <button onClick={toggleUploadForm}>New photo</button>
-            {showForm && <PhotoForm />}
+            {showForm && <PhotoForm uploadPhoto={uploadPhoto}/>}
         </div>
     )
 }

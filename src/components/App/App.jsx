@@ -23,9 +23,18 @@ function App() {
       console.log('Error getting gallery', error);
     })
   }
-  //PUT route
+  //PUT route that increments number of likes on a photo
   const likePhoto = (id) => {
     axios.put(`/gallery/like/${id}`).then(response => {
+      getGallery();
+    }).catch(error => {
+      console.log('Error liking photo', error);
+    })
+  }
+
+  // POST route that uploads new photo
+  const uploadPhoto = (newPhoto) => {
+    axios.post(`/gallery/upload`, newPhoto).then(response => {
       getGallery();
     }).catch(error => {
       console.log('Error liking photo', error);
@@ -37,7 +46,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <UploadPhoto />
+        <UploadPhoto uploadPhoto = {uploadPhoto}/>
         <GalleryList gallery={gallery} likePhoto={likePhoto}/>
       </div>
     );
