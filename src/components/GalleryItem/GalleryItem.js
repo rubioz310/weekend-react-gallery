@@ -14,8 +14,10 @@ function GalleryItem(props) {
     }
     return(
         <div className="photoFrame">
-            {!showDescription && <img src={photo.path} onClick={toggleDescription}/>}
-            {showDescription && <p onClick={toggleDescription}>{photo.description}</p>}
+            <div className="photo" onClick={toggleDescription}>
+                {!showDescription && <img src={photo.path}/>}
+                {showDescription && <p >{photo.description}</p>}
+            </div>
             <p>Likes: {photo.likes}</p>
             <button onClick={handleLike}>Like</button>
         </div>
