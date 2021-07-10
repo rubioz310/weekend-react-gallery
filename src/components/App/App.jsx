@@ -5,6 +5,7 @@ import {useState, useEffect} from 'react';
 
 //Components imports
 import GalleryList from '../GalleryList/GalleryList';
+import UploadPhoto from '../UploadPhoto/UploadPhoto';
 
 function App() {
   //On load, get Gallery
@@ -36,6 +37,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
+        <UploadPhoto />
         <GalleryList gallery={gallery} likePhoto={likePhoto}/>
       </div>
     );
