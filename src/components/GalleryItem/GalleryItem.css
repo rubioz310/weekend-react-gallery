@@ -1,0 +1,8 @@
+.delete{
+    float: left;
+}
+
+.deleteBtn {
+    background-color: red;
+    border-radius: 12px;
+}
