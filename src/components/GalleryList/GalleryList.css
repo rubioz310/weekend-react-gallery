@@ -1,0 +1,6 @@
+.photoFrame{
+    border: 1px solid black;
+    margin: 16px;
+    padding: 8px;
+    float: left;
+}
