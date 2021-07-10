@@ -8,6 +8,7 @@ function GalleryItem(props) {
 
     const photo = props.photo;
     const likePhoto = props.likePhoto
+    const deletePhoto = props.deletePhoto;
 
     //Toggles between showing photo and description
     const toggleDescription = () => {
@@ -24,7 +25,7 @@ function GalleryItem(props) {
     return(
         // onMouseOver={toggleDelete} onMouseLeave={toggleDelete}
         <div className="photoFrame" >
-            {showDelete && <DeleteButton />}
+            {showDelete && <DeleteButton deletePhoto = {deletePhoto} photoId = {photo.id}/>}
             <div className="photo" onClick={toggleDescription} >
                 {!showDescription && <img src={photo.path}/>}
                 {showDescription && <p >{photo.description}</p>}

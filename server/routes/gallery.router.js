@@ -46,8 +46,8 @@ router.post('/upload', (req, res) => {
     })
 }); //END POST Route
 
-// PUT Route that increments likes count by 1
-router.delete('/', (req, res) => {
+// DELETE Route that deletes photo
+router.delete('/delete/:id', (req, res) => {
     const galleryId = req.params.id;
     let sqlText = `DELETE FROM "photos" 
                 WHERE "id" = $1`;
@@ -58,6 +58,6 @@ router.delete('/', (req, res) => {
     }).catch(error => {
         console.log("Error deleting photo", error);
     })
-}); // END PUT Route
+}); // END DELETE Route
 
 module.exports = router;

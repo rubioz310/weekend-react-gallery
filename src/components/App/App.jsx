@@ -31,13 +31,20 @@ function App() {
       console.log('Error liking photo', error);
     })
   }
-
   // POST route that uploads new photo
   const uploadPhoto = (newPhoto) => {
     axios.post(`/gallery/upload`, newPhoto).then(response => {
       getGallery();
     }).catch(error => {
-      console.log('Error liking photo', error);
+      console.log('Error uploading photo', error);
+    })
+  }
+  // DELETE route that deletes photo
+  const deletePhoto = (id) => {
+    axios.delete(`/gallery/delete/${id}`).then(response => {
+      getGallery();
+    }).catch(error => {
+      console.log('Error deleting photo', error);
     })
   }
 
@@ -46,8 +53,8 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <UploadPhoto uploadPhoto = {uploadPhoto}/>
-        <GalleryList gallery={gallery} likePhoto={likePhoto}/>
+        <UploadPhoto uploadPhoto = {uploadPhoto} />
+        <GalleryList gallery={gallery} likePhoto={likePhoto} deletePhoto = {deletePhoto}/>
       </div>
     );
 }
