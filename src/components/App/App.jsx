@@ -22,6 +22,14 @@ function App() {
       console.log('Error getting gallery', error);
     })
   }
+  //PUT route
+  const likePhoto = (id) => {
+    axios.put(`/gallery/like/${id}`).then(response => {
+      getGallery();
+    }).catch(error => {
+      console.log('Error liking photo', error);
+    })
+  }
 
     return (
       <div className="App">
@@ -29,7 +37,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <p>Gallery goes here</p>
-        <GalleryList gallery={gallery}/>
+        <GalleryList gallery={gallery} likePhoto={likePhoto}/>
       </div>
     );
 }
