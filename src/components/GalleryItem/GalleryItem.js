@@ -5,10 +5,13 @@ function GalleryItem(props) {
     const photo = props.photo;
     const likePhoto = props.likePhoto
 
+    console.log(photo);
+
+    //Toggles between showing photo and description
     const toggleDescription = () => {
         setShowDescription(showDescription ? false:true);
     }
-
+    //Updates likes count with API in App.jsx
     const handleLike = () =>{
         likePhoto(photo.id)
     }

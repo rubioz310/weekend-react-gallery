@@ -11,7 +11,7 @@ function App() {
   useEffect(() => {
     getGallery()
   }, [])
-  
+  //For showing data from server
   let [gallery, setGallery] = useState([]);
 
   //GET route
