@@ -1,14 +1,12 @@
 import '../GalleryList/GalleryList.css'
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList (props) {
     const gallery = props.gallery;
     return(
         <div>
             {gallery.map(photo => (
-                <div key={photo.id} className="photoFrame">
-                    <img src={photo.path}/>
-                    <p>{photo.description}</p>
-                </div>
+                <GalleryItem key={photo.id} photo={photo}/>
             ))}
         </div>
     )
