@@ -6,14 +6,17 @@ const pool = require('../modules/pool.js');
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-    console.log(req.params);
     const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
+    let sqlText = `UPDATE "photos" 
+                SET "likes" = "likes" + 1
+                WHERE "id" = $1`;
+    
+    pool.query(sqlText, [galleryId])
+    .then(result => {
+        res.sendStatus(202);
+    }).catch(error => {
+        console.log("Error liking photo", error);
+    })
 }); // END PUT Route
 
 // Get all photos from the gallery
