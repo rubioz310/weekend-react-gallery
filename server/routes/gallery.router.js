@@ -7,11 +7,12 @@ const pool = require('../modules/pool.js');
 // PUT Route that increments likes count by 1
 router.put('/like/:id', (req, res) => {
     const galleryId = req.params.id;
+    let count = req.body.like;
     let sqlText = `UPDATE "photos" 
-                SET "likes" = "likes" + 1
-                WHERE "id" = $1`;
+                SET "likes" = "likes" + $1
+                WHERE "id" = $2`;
     
-    pool.query(sqlText, [galleryId])
+    pool.query(sqlText, [count, galleryId])
     .then(result => {
         res.sendStatus(202);
     }).catch(error => {

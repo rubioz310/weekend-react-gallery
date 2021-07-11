@@ -4,8 +4,6 @@ import DeleteForever from '@material-ui/icons/DeleteForever';
 import '../DeleteButton/DeleteButton.css'
 
 function DeleteButton (props) {
-    let [showDelete, setShowDelete] = useState(false);
-
     const deletePhoto = props.deletePhoto;
     const photoId = props.photoId
     
@@ -15,7 +13,7 @@ function DeleteButton (props) {
 
     return(
         <div className="delete" onClick={handleDelete}>
-            <IconButton color="primary" aria-label="upload picture" component="span" color="secondary">
+            <IconButton color="secondary">
                 <DeleteForever />
             </IconButton>
         </div>

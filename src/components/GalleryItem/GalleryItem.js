@@ -1,7 +1,15 @@
 import {useState} from 'react';
+
+//Styles and components imports
 import './GalleryItem.css';
 import DeleteButton from '../DeleteButton/DeleteButton'
+
+//Material-ui buttons and icons
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import ThumbUp from '@material-ui/icons/ThumbUp';
+import ThumbDown from '@material-ui/icons/ThumbDown';
+
 
 function GalleryItem(props) {
     let [showDescription, setShowDescription] = useState(false);
@@ -21,7 +29,10 @@ function GalleryItem(props) {
     
     //Updates likes count with API in App.jsx
     const handleLike = () =>{
-        likePhoto(photo.id)
+        likePhoto(photo.id, 1)
+    }
+    const handleDislike = () =>{
+        likePhoto(photo.id, -1)
     }
     return(
         // onMouseOver={toggleDelete} onMouseLeave={toggleDelete}
@@ -32,8 +43,9 @@ function GalleryItem(props) {
                 {showDescription && <div className="description"><p >{photo.description}</p></div>}
             </div>
             <div className="likesSection">
-                <Button variant="contained" color="primary" size="small" onClick={handleLike}>Like</Button>
-                <p>{photo.likes || "No"} Likes</p>
+                <IconButton color="primary" onClick={handleLike}><ThumbUp /></IconButton>
+                <p>{photo.likes && `${photo.likes} Likes` || "No likes :("} </p>
+                <IconButton color="primary" onClick={handleDislike}><ThumbDown /></IconButton>
             </div>
         </div>
     )
