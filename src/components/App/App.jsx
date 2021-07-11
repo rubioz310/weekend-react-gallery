@@ -53,8 +53,8 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <UploadPhoto uploadPhoto = {uploadPhoto} />
         <GalleryList gallery={gallery} likePhoto={likePhoto} deletePhoto = {deletePhoto}/>
+        <UploadPhoto uploadPhoto = {uploadPhoto} />
       </div>
     );
 }

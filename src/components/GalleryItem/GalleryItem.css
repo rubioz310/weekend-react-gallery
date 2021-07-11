@@ -2,19 +2,14 @@
     border: 1px solid black;
     margin: 16px;
     padding: 16px;
-    float: left;
-    text-align: center;
 }
 
 .photo {
     margin: 32px;
     margin-top: 40px;
-    display: flex;
-    align-items: center;
     border: 1px solid black;
-    width: 200px;
 }
 
 .photo img {
-    width: 200px;
+    max-width: 400px;
 }
