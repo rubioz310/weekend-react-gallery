@@ -12,6 +12,14 @@
 .App-title {
   font-size: 1.5em;
 }
-body{
-  background-color: antiquewhite;
+/* body{
+  background-image: url("./camera-background.jpg");
+} */
+
+html { 
+  background: url("./camera-background.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

@@ -38,7 +38,7 @@ router.post('/upload', (req, res) => {
     const newPhoto = req.body;
     let sqlText = `INSERT INTO "photos" ("path", "description", likes)
                 VALUES ($1, $2, 0)`;
-    
+    console.log(newPhoto);
     pool.query(sqlText, [newPhoto.path, newPhoto.description])
     .then(result => {
         res.sendStatus(201);

@@ -33,6 +33,7 @@ function App() {
   }
   // POST route that uploads new photo
   const uploadPhoto = (newPhoto) => {
+    console.log(newPhoto);
     axios.post(`/gallery/upload`, newPhoto).then(response => {
       getGallery();
     }).catch(error => {
