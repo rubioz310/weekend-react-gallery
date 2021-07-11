@@ -29,10 +29,12 @@ function GalleryItem(props) {
             {showDelete && <DeleteButton deletePhoto = {deletePhoto} photoId = {photo.id}/>}
             <div className="photo" onClick={toggleDescription} >
                 {!showDescription && <img src={photo.path}/>}
-                {showDescription && <p >{photo.description}</p>}
+                {showDescription && <div className="description"><p >{photo.description}</p></div>}
             </div>
-            <p>Likes: {photo.likes}</p>
-            <Button variant="contained" color="primary" onClick={handleLike}>Like</Button>
+            <div className="likesSection">
+                <Button variant="contained" color="primary" size="small" onClick={handleLike}>Like</Button>
+                <p>{photo.likes || "No"} Likes</p>
+            </div>
         </div>
     )
 }

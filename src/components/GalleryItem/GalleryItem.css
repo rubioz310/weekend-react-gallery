@@ -1,15 +1,34 @@
 .photoFrame{
     border: 1px solid black;
+    background: white;
+    border-radius: 12px;
     margin: 16px;
     padding: 16px;
 }
 
 .photo {
-    margin: 32px;
-    margin-top: 40px;
-    border: 1px solid black;
+    border: 8px solid rgb(43, 42, 42);
+    background-color: rgb(43,42,42);
+    display: flex;
+    max-width: 250px;
+    flex-basis: auto;
 }
 
 .photo img {
-    max-width: 400px;
+    max-width: 100%;
+}
+
+.description{
+    margin: 12px;
+}
+.description p{
+    margin-left: 16px;
+    color: white;
+    font-size: 24px;
+}
+
+.likesSection{
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
 }
