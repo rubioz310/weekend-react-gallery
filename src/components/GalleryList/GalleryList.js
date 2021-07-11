@@ -6,7 +6,7 @@ function GalleryList (props) {
     const likePhoto=props.likePhoto;
     const deletePhoto = props.deletePhoto;
     return(
-        <div>
+        <div className='gallery'>
             {gallery.map(photo => (
                 <GalleryItem key={photo.id} photo={photo} likePhoto={likePhoto} deletePhoto = {deletePhoto}/>
             ))}

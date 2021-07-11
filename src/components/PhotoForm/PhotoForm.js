@@ -16,10 +16,12 @@ function PhotoForm(props){
     }
 
     return(
-        <div>
-            <input type="text" placeholder="URL" value={photoPath} onChange={evt => setPhotoPath(evt.target.value)}/>
-            <textarea rows="5" cols="30" placeholder="Description" value={photoDescription} onChange={evt => setPhotoDescription(evt.target.value)}/>
-            <button onClick={handleUpload}>Upload</button>
+        <div className="uploadForm">
+            <form >
+                <input type="text" placeholder="URL" value={photoPath} onChange={evt => setPhotoPath(evt.target.value)}/>
+                <textarea rows="4" cols="30" placeholder="Description" value={photoDescription} onChange={evt => setPhotoDescription(evt.target.value)}/>
+                <button onClick={handleUpload}>Upload</button>
+            </form>
         </div>
     )
 }

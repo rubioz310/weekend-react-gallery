@@ -1,10 +1,15 @@
 import {useState} from 'react';
+
+//Styles and components imports
 import './GalleryItem.css';
 import DeleteButton from '../DeleteButton/DeleteButton'
+import LikeSection from '../LikeSection/LikeSection';
+
+
 
 function GalleryItem(props) {
     let [showDescription, setShowDescription] = useState(false);
-    let [showDelete, setShowDelete] = useState(true) //Change later to false
+    let [showDelete, setShowDelete] = useState(false) //Change later to false
 
     const photo = props.photo;
     const likePhoto = props.likePhoto
@@ -18,20 +23,15 @@ function GalleryItem(props) {
         setShowDelete(showDelete ? false:true);
     }
     
-    //Updates likes count with API in App.jsx
-    const handleLike = () =>{
-        likePhoto(photo.id)
-    }
     return(
         // onMouseOver={toggleDelete} onMouseLeave={toggleDelete}
-        <div className="photoFrame" >
+        <div className="photoFrame" onMouseEnter={toggleDelete} onMouseLeave={toggleDelete}>
             {showDelete && <DeleteButton deletePhoto = {deletePhoto} photoId = {photo.id}/>}
             <div className="photo" onClick={toggleDescription} >
                 {!showDescription && <img src={photo.path}/>}
-                {showDescription && <p >{photo.description}</p>}
+                {showDescription && <div className="description"><p >{photo.description}</p></div>}
             </div>
-            <p>Likes: {photo.likes}</p>
-            <button onClick={handleLike}>Like</button>
+            <LikeSection likes={photo.likes} likePhoto={likePhoto} id={photo.id}/>
         </div>
     )
 }

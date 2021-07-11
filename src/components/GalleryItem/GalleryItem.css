@@ -1,8 +1,28 @@
-.delete{
-    float: left;
+.photoFrame{
+    border: 1px solid black;
+    background: white;
+    border-radius: 12px;
+    margin: 16px;
+    padding: 16px;
 }
 
-.deleteBtn {
-    background-color: red;
-    border-radius: 12px;
+.photo {
+    border: 8px solid rgb(43, 42, 42);
+    background-color: rgb(43,42,42);
+    display: flex;
+    max-width: 250px;
+    flex-basis: auto;
+}
+
+.photo img {
+    max-width: 100%;
+}
+
+.description{
+    margin: 12px;
+}
+.description p{
+    margin-left: 16px;
+    color: white;
+    font-size: 24px;
 }

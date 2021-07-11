@@ -24,8 +24,8 @@ function App() {
     })
   }
   //PUT route that increments number of likes on a photo
-  const likePhoto = (id) => {
-    axios.put(`/gallery/like/${id}`).then(response => {
+  const likePhoto = (id, count) => {
+    axios.put(`/gallery/like/${id}`, {like:count}).then(response => {
       getGallery();
     }).catch(error => {
       console.log('Error liking photo', error);
@@ -53,8 +53,8 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <UploadPhoto uploadPhoto = {uploadPhoto} />
         <GalleryList gallery={gallery} likePhoto={likePhoto} deletePhoto = {deletePhoto}/>
+        <UploadPhoto uploadPhoto = {uploadPhoto} />
       </div>
     );
 }

@@ -1,22 +1,9 @@
-.photoFrame{
+.gallery{
     border: 1px solid black;
-    margin: 16px;
-    padding: 16px;
-    width: 280px;
-    height: 280px;
-    float: left;
-    text-align: center;
-}
-
-.photo {
-    margin: auto;
-    margin-top: 24px;
+    float:left;
+    width: 80%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
-    height: 200px;
-    border: 1px solid black;
-}
-
-.photo img {
-    height: 200px;
-}
+  }

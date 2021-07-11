@@ -1,27 +1,21 @@
 import {useState} from 'react';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteForever from '@material-ui/icons/DeleteForever';
+import '../DeleteButton/DeleteButton.css'
 
 function DeleteButton (props) {
-    let [showDelete, setShowDelete] = useState(false);
-
     const deletePhoto = props.deletePhoto;
     const photoId = props.photoId
-
-    //Toggles appearance of delete button
-    const toggleDelete = () => {
-        setShowDelete(showDelete ? false:true);
-    }
     
     const handleDelete = () => {
         deletePhoto(photoId);
     }
 
     return(
-        <div className="delete">
-            <button className="deleteBtn" 
-            onMouseOver={toggleDelete} onMouseLeave={toggleDelete}
-            onClick={handleDelete}>
-                x{showDelete && " Delete Photo"}
-            </button>
+        <div className="delete" onClick={handleDelete}>
+            <IconButton color="secondary">
+                <DeleteForever />
+            </IconButton>
         </div>
     )
 }
